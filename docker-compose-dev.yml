@@ -1,0 +1,40 @@
+services:
+  web-be-dev:
+    build:
+      context: Web-Backend/sapiv
+      dockerfile: Dockerfile-dev
+    container_name: sapiv-webbe-dev
+    restart: always
+    environment:
+      - TZ=Asia/Seoul
+    ports:
+      - '8000:3000'
+    networks:
+      - dev
+  
+  api-validator:
+    build: API_validator_server
+    container_name: sapiv-apivalidator-dev
+    restart: always
+    environment:
+      - TZ=Asia/Seoul
+    ports:
+      - "8070:3000"
+    networks:
+      - dev
+
+  web-fe-dev:
+    build: Frontend/api_validator
+    container_name: sapiv-webfe-dev
+    depends_on:
+      - web-be-dev
+    restart: always
+    environment:
+      - TZ=Asia/Seoul
+    ports:
+      - '3000:3000'
+    networks:
+      - dev
+
+networks:
+  dev:

@@ -1,0 +1,26 @@
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #004eda;
+}
+
+.left .img {
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+}
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.right .text {
+  color: #5A5A5F;
+}
